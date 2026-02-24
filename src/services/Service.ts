@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'http://localhost:4000'
 });
 
 export const buscar = async (url: string, setDados: Function, header: object) => {
@@ -25,12 +25,16 @@ export const buscarPorRawMaterial = async (url: string, rawMaterialId: number, s
 }
 
 export const cadastrar = async (url: string, dados: object, setDados: Function, header: object) => {
-    const resposta = await api.post(url, dados, header);
+    const resposta = await api.post(url, dados, {
+        headers: { "Content-Type": "application/json" }
+    });
     setDados(resposta.data);
 }
 
 export const atualizar = async (url: string, dados: object, setDados: Function, header: object) => {
-    const resposta = await api.put(url, dados, header);
+    const resposta = await api.put(url, dados, {
+        headers: { "Content-Type": "application/json" }
+    });
     setDados(resposta.data);
 }
 

@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import type Products from "../../../models/Procucts";
 import type RawMaterial from "../../../models/RawMaterials";
 import SyncLoader from "react-spinners/SyncLoader";
-import { useNavigate } from "react-router-dom";
 import { buscar } from "../../../services/Service";
 import CardProducts from "../cardproducts/CardProducts";
+import ModalProducts from "../modalproducts/ModalProducts";
 
 function ListProducts() {
-    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [products, setProducts] = useState<Products[]>([]);
     const [rawMaterials, setRawMaterials] = useState<RawMaterial[]>([]);
@@ -97,12 +96,7 @@ function ListProducts() {
                                 </button>
                             )}
                         </div>
-                        <button
-                            onClick={() => navigate("/products/cadastrar")}
-                            className="bg-indigo-900 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200"
-                        >
-                            + Novo Produto
-                        </button>
+                        <ModalProducts />
                     </div>
 
                     {(!isLoading && products.length === 0) && (

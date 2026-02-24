@@ -1,14 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import { ToastContainer } from 'react-toastify/unstyled'
+import Navbar from './components/navbar/Navbar'
+import Footer from './components/footer/Footer'
+import Home from './pages/home/Home'
+import FormRawMaterials from './components/rawmaterials/formrawmaterial/FormRawMaterials'
+import ListRawMaterials from './components/rawmaterials/listrawmaterial/ListRawMaterials'
+import DeleteRawMaterials from './components/rawmaterials/delelerawmaterial/DeleteRawMaterials'
+import FormProducts from './components/products/formproducts/FormProducts'
+import ListProducts from './components/products/listproducts/ListProducts'
+import DeleteProducts from './components/products/deleteproducts/DeleteProducts'
 
 function App() {
 
 
   return (
     <>
+      <ToastContainer />
+      <BrowserRouter>
+        <Navbar />
 
+        <main className='min-h-[80vh]'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/home' element={<Home />} />
+
+            <Route path='/materia' element={<ListRawMaterials />} />
+            <Route path='/rawmaterials/cadastrar' element={<FormRawMaterials />} />
+            <Route path='/editarrawmaterial/:id' element={<FormRawMaterials />} />
+            <Route path='/deletarrawmaterial/:id' element={<DeleteRawMaterials />} />
+
+            <Route path='/products' element={<ListProducts />} />
+            <Route path='/products/cadastrar' element={<FormProducts />} />
+            <Route path='/editarproduto/:id' element={<FormProducts />} />
+            <Route path='/deletarproduto/:id' element={<DeleteProducts />} />
+
+          </Routes>
+        </main>
+
+        <Footer />
+      </BrowserRouter>
     </>
   )
 }

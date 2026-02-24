@@ -8,6 +8,8 @@ import FormRawMaterials from './components/rawmaterials/formrawmaterial/FormRawM
 import ListRawMaterials from './components/rawmaterials/listrawmaterial/ListRawMaterials'
 import DeleteRawMaterials from './components/rawmaterials/delelerawmaterial/DeleteRawMaterials'
 import FormProducts from './components/products/formproducts/FormProducts'
+import ListProducts from './components/products/listproducts/ListProducts'
+import DeleteProducts from './components/products/deleteproducts/DeleteProducts'
 
 function App() {
 
@@ -28,9 +30,10 @@ function App() {
             <Route path='/editarrawmaterial/:id' element={<FormRawMaterials />} />
             <Route path='/deletarrawmaterial/:id' element={<DeleteRawMaterials />} />
 
-
+            <Route path='/products' element={<ListProducts />} />
             <Route path='/products/cadastrar' element={<FormProducts />} />
-            <Route path='/editarproduct/:id' element={<FormProducts />} />
+            <Route path='/editarproduto/:id' element={<FormProducts />} />
+            <Route path='/deletarproduto/:id' element={<DeleteProducts />} />
 
           </Routes>
         </main>

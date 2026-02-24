@@ -52,15 +52,16 @@ function FormProducts() {
         setIsLoading(true);
 
         const payload = {
+            id: id !== undefined ? Number(id) : undefined,
             name: product.name,
             description: product.description,
             price: Number(product.price),
-            rawMaterial: product.RawMaterial ? { id: product.RawMaterial.id } : undefined
+            rawMaterial: product.rawMaterial ? { id: product.rawMaterial.id } : undefined
         };
 
         try {
             if (id !== undefined) {
-                await atualizar(`/products/${id}`, payload, setProduct, {});
+                await atualizar(`/products`, payload, setProduct, {});
                 ToastAlert("Produto atualizado com sucesso!", "sucesso");
             } else {
                 await cadastrar(`/products`, payload, () => {}, {});
@@ -87,7 +88,6 @@ function FormProducts() {
                     </div>
 
                     <form className="flex flex-col gap-6" onSubmit={submitForm}>
-
                         <div className="flex flex-col gap-2">
                             <label htmlFor="name" className="text-gray-700 font-semibold text-sm">
                                 Nome do Produto
@@ -139,22 +139,22 @@ function FormProducts() {
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <label htmlFor="RawMaterial" className="text-gray-700 font-semibold text-sm">
+                            <label htmlFor="rawMaterial" className="text-gray-700 font-semibold text-sm">
                                 Matéria-prima
                             </label>
                             <select
-                                name="RawMaterial"
-                                id="RawMaterial"
+                                name="rawMaterial"
+                                id="rawMaterial"
                                 className="border-2 border-gray-200 rounded-lg p-3 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-200 transition-all duration-200"
                                 onChange={(e) =>
                                     setProduct({
                                         ...product,
-                                        RawMaterial: rawMaterials.find(
+                                        rawMaterial: rawMaterials.find(
                                             (rm) => rm.id === Number(e.target.value)
                                         )
                                     })
                                 }
-                                value={product.RawMaterial?.id || ""}
+                                value={product.rawMaterial?.id || ""}
                                 required
                             >
                                 <option value="">Selecione uma matéria-prima</option>

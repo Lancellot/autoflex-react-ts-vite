@@ -21,7 +21,7 @@ function CardProducts({ products }: CardProductsProps) {
                 </p>
 
                 <p>
-                    Matéria-prima: {products.RawMaterial?.name}
+                    Matéria-prima: {products.rawMaterial?.name}
                 </p>
 
                 <p>Data: {new Intl.DateTimeFormat("pt-BR", {

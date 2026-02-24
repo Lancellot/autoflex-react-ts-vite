@@ -6,5 +6,5 @@ export default interface Products {
     description: string;
     price: number;
     createdAt: string;
-    RawMaterial?: RawMaterial;
+    rawMaterial?: RawMaterial;
 }

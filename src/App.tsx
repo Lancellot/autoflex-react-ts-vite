@@ -7,31 +7,36 @@ import Home from './pages/home/Home'
 import FormRawMaterials from './components/rawmaterials/formrawmaterial/FormRawMaterials'
 import ListRawMaterials from './components/rawmaterials/listrawmaterial/ListRawMaterials'
 import DeleteRawMaterials from './components/rawmaterials/delelerawmaterial/DeleteRawMaterials'
+import FormProducts from './components/products/formproducts/FormProducts'
 
 function App() {
 
 
   return (
     <>
-    <ToastContainer />
-    <BrowserRouter>
-      <Navbar />
-      
-      <main className='min-h-[80vh]'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/materia' element={<ListRawMaterials />} />
-          <Route path='/rawmaterials/cadastrar' element={<FormRawMaterials />} />
-          <Route path='/editarrawmaterial/:id' element={<FormRawMaterials />} />
-          <Route path='/deletarrawmaterial/:id' element={<DeleteRawMaterials />} />
-          
-          
-        </Routes>
-      </main>
+      <ToastContainer />
+      <BrowserRouter>
+        <Navbar />
 
-      <Footer />
-    </BrowserRouter>
+        <main className='min-h-[80vh]'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/home' element={<Home />} />
+
+            <Route path='/materia' element={<ListRawMaterials />} />
+            <Route path='/rawmaterials/cadastrar' element={<FormRawMaterials />} />
+            <Route path='/editarrawmaterial/:id' element={<FormRawMaterials />} />
+            <Route path='/deletarrawmaterial/:id' element={<DeleteRawMaterials />} />
+
+
+            <Route path='/products/cadastrar' element={<FormProducts />} />
+            <Route path='/editarproduct/:id' element={<FormProducts />} />
+
+          </Routes>
+        </main>
+
+        <Footer />
+      </BrowserRouter>
     </>
   )
 }

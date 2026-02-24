@@ -14,7 +14,7 @@ function Navbar() {
 
                 <ul className="flex gap-4">
 
-                    <li><Link to='/produtos' className='hover:underline'>Produtos</Link></li>
+                    <li><Link to='/products' className='hover:underline'>Produtos</Link></li>
 
                     <li><Link to='/materia' className='hover:underline'>Matérias Primas</Link></li>
 

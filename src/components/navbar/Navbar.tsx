@@ -8,7 +8,7 @@ function Navbar() {
     componet = (
 
         <nav className="w-full flex justify-center py-4
-            bg-indigo-900 text-white">
+            bg-blue-500 text-white">
             <section className="container flex justify-between text-lg mx-8">
                 <Link to="/home" className="text-2xl font-bold">Teste Prático - Autoflex</Link>
 
